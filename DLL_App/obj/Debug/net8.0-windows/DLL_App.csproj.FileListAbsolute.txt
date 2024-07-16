@@ -1,0 +1,16 @@
+C:\Users\usuario\source\repos\DLL_App\DLL_App\bin\Debug\net8.0-windows\DLL_App.exe
+C:\Users\usuario\source\repos\DLL_App\DLL_App\bin\Debug\net8.0-windows\DLL_App.deps.json
+C:\Users\usuario\source\repos\DLL_App\DLL_App\bin\Debug\net8.0-windows\DLL_App.runtimeconfig.json
+C:\Users\usuario\source\repos\DLL_App\DLL_App\bin\Debug\net8.0-windows\DLL_App.dll
+C:\Users\usuario\source\repos\DLL_App\DLL_App\bin\Debug\net8.0-windows\DLL_App.pdb
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.Interfaz.resources
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.AssemblyInfoInputs.cache
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.AssemblyInfo.cs
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.dll
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\refint\DLL_App.dll
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.pdb
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.genruntimeconfig.cache
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\ref\DLL_App.dll

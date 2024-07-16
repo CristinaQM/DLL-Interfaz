@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\usuario\\source\\repos\\DLL_App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|c:\\users\\usuario\\source\\repos\\dll_app\\dll_app\\.gitignore||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|solutionrelative:dll_app\\.gitignore||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|c:\\users\\usuario\\source\\repos\\dll_app\\dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|solutionrelative:dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|C:\\Users\\usuario\\source\\repos\\DLL_App\\dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|solutionrelative:dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\.gitignore",
+              "RelativeDocumentMoniker": "DLL_App\\.gitignore",
+              "ToolTip": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\.gitignore",
+              "RelativeToolTip": "DLL_App\\.gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-16T17:43:21.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inicio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs",
+              "RelativeDocumentMoniker": "DLL_App\\Inicio.cs",
+              "ToolTip": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "DLL_App\\Inicio.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T07:03:56.878Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs",
+              "RelativeDocumentMoniker": "DLL_App\\Inicio.cs",
+              "ToolTip": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs",
+              "RelativeToolTip": "DLL_App\\Inicio.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADIAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T05:38:17.459Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
