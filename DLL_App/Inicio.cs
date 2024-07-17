@@ -80,7 +80,7 @@ namespace DLL_App
         private void combPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnOpen.Enabled = true;
-            btnClose.Enabled =true;
+            btnClose.Enabled = true;
 
         }
 
