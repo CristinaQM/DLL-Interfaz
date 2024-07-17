@@ -38,14 +38,12 @@ namespace DLL_App
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            btnOpen.Enabled = false;
-            btnClose.Enabled = true;
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            btnOpen.Enabled = true;
-            btnClose.Enabled = false;
+           
         }
 
         private void Interfaz_Load(object sender, EventArgs e)
@@ -82,6 +80,7 @@ namespace DLL_App
         private void combPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnOpen.Enabled = true;
+            btnClose.Enabled =true;
 
         }
 
