@@ -38,12 +38,12 @@ namespace DLL_App
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Interfaz_Load(object sender, EventArgs e)
@@ -82,6 +82,15 @@ namespace DLL_App
             btnOpen.Enabled = true;
             btnClose.Enabled = true;
 
+            if (combType.SelectedItem != null && combCommands.SelectedItem != null)
+            {
+                btnInit.Enabled = true;
+            }
+            else
+            {
+                btnInit.Enabled = false;
+            }
+
         }
 
         private void combType_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,10 +103,33 @@ namespace DLL_App
 
             foreach (var cmd in commands)
             {
-                if (cmd.ContainsKey("code") && cmd["type"]==selectedType) 
-                { 
+                if (cmd.ContainsKey("code") && cmd["type"] == selectedType)
+                {
                     combCommands.Items.Add(cmd["code"]);
                 }
+            }
+
+            if (combPorts.SelectedItem != null && combCommands.SelectedItem != null)
+            {
+                btnInit.Enabled = true;
+            }
+            else
+            {
+                btnInit.Enabled = false;
+            }
+
+
+        }
+
+        private void combCommands_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (combPorts.SelectedItem != null)
+            {
+                btnInit.Enabled = true;
+            }
+            else
+            {
+                btnInit.Enabled = false;
             }
         }
     }

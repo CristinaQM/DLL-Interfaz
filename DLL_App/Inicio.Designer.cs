@@ -28,131 +28,200 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Interfaz));
             label1 = new Label();
+            btnInit = new Button();
             label2 = new Label();
             combPorts = new ComboBox();
             btnOpen = new Button();
             btnClose = new Button();
-            btnInit = new Button();
             label3 = new Label();
             combCommands = new ComboBox();
             combType = new ComboBox();
             label4 = new Label();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(26, 41);
+            label1.Font = new Font("Franklin Gothic Medium Cond", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(146, 69);
             label1.Name = "label1";
-            label1.Size = new Size(106, 31);
+            label1.Size = new Size(140, 47);
             label1.TabIndex = 0;
             label1.Text = "AMI DLL";
+            // 
+            // btnInit
+            // 
+            btnInit.BackColor = Color.FromArgb(240, 43, 83);
+            btnInit.FlatAppearance.BorderSize = 0;
+            btnInit.FlatStyle = FlatStyle.Flat;
+            btnInit.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInit.ForeColor = Color.White;
+            btnInit.Location = new Point(524, 453);
+            btnInit.Name = "btnInit";
+            btnInit.Size = new Size(97, 44);
+            btnInit.TabIndex = 5;
+            btnInit.Text = "Init";
+            btnInit.UseVisualStyleBackColor = false;
+            btnInit.Click += btnInit_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(26, 104);
+            label2.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(37, 31);
             label2.Name = "label2";
-            label2.Size = new Size(41, 23);
+            label2.Size = new Size(50, 25);
             label2.TabIndex = 1;
             label2.Text = "Port";
             // 
             // combPorts
             // 
+            combPorts.BackColor = Color.FromArgb(22, 21, 35);
             combPorts.DropDownStyle = ComboBoxStyle.DropDownList;
+            combPorts.FlatStyle = FlatStyle.Flat;
+            combPorts.Font = new Font("Franklin Gothic Book", 10.8F);
+            combPorts.ForeColor = Color.White;
             combPorts.FormattingEnabled = true;
-            combPorts.Location = new Point(137, 105);
+            combPorts.Location = new Point(106, 31);
             combPorts.Name = "combPorts";
-            combPorts.Size = new Size(151, 28);
+            combPorts.Size = new Size(183, 31);
             combPorts.TabIndex = 2;
             combPorts.SelectedIndexChanged += combPorts_SelectedIndexChanged;
             // 
             // btnOpen
             // 
-            btnOpen.Location = new Point(309, 104);
+            btnOpen.BackColor = Color.FromArgb(240, 43, 83);
+            btnOpen.FlatAppearance.BorderSize = 0;
+            btnOpen.FlatStyle = FlatStyle.Flat;
+            btnOpen.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Bold);
+            btnOpen.ForeColor = Color.White;
+            btnOpen.Location = new Point(318, 27);
             btnOpen.Name = "btnOpen";
-            btnOpen.Size = new Size(63, 29);
+            btnOpen.Size = new Size(65, 36);
             btnOpen.TabIndex = 3;
             btnOpen.Text = "Open";
-            btnOpen.UseVisualStyleBackColor = true;
+            btnOpen.UseVisualStyleBackColor = false;
             btnOpen.Click += btnOpen_Click;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(378, 104);
+            btnClose.BackColor = Color.FromArgb(240, 43, 83);
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Bold);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(406, 27);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(63, 29);
+            btnClose.Size = new Size(65, 36);
             btnClose.TabIndex = 4;
             btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
-            // 
-            // btnInit
-            // 
-            btnInit.Location = new Point(309, 375);
-            btnInit.Name = "btnInit";
-            btnInit.Size = new Size(122, 44);
-            btnInit.TabIndex = 5;
-            btnInit.Text = "Init";
-            btnInit.UseVisualStyleBackColor = true;
-            btnInit.Click += btnInit_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(309, 159);
+            label3.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(370, 317);
             label3.Name = "label3";
-            label3.Size = new Size(90, 23);
+            label3.Size = new Size(106, 25);
             label3.TabIndex = 6;
             label3.Text = "Command";
             // 
             // combCommands
             // 
+            combCommands.BackColor = Color.FromArgb(22, 21, 35);
             combCommands.DropDownStyle = ComboBoxStyle.DropDownList;
+            combCommands.FlatStyle = FlatStyle.Flat;
+            combCommands.Font = new Font("Franklin Gothic Book", 10.8F);
+            combCommands.ForeColor = Color.White;
             combCommands.FormattingEnabled = true;
-            combCommands.Location = new Point(410, 159);
+            combCommands.Location = new Point(370, 361);
             combCommands.Name = "combCommands";
-            combCommands.Size = new Size(151, 28);
+            combCommands.Size = new Size(178, 31);
             combCommands.TabIndex = 7;
+            combCommands.SelectedIndexChanged += combCommands_SelectedIndexChanged;
             // 
             // combType
             // 
+            combType.BackColor = Color.FromArgb(22, 21, 35);
             combType.DropDownStyle = ComboBoxStyle.DropDownList;
+            combType.FlatStyle = FlatStyle.Flat;
+            combType.Font = new Font("Franklin Gothic Book", 10.8F);
+            combType.ForeColor = Color.White;
             combType.FormattingEnabled = true;
-            combType.Location = new Point(137, 159);
+            combType.Location = new Point(73, 361);
             combType.Name = "combType";
-            combType.Size = new Size(151, 28);
+            combType.Size = new Size(178, 31);
             combType.TabIndex = 8;
             combType.SelectedIndexChanged += combType_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(26, 159);
+            label4.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(73, 317);
             label4.Name = "label4";
-            label4.Size = new Size(86, 23);
+            label4.Size = new Size(103, 25);
             label4.TabIndex = 9;
             label4.Text = "Cmd Type";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(22, 21, 34);
+            panel1.Controls.Add(btnClose);
+            panel1.Controls.Add(btnOpen);
+            panel1.Controls.Add(combPorts);
+            panel1.Controls.Add(label2);
+            panel1.ForeColor = Color.FromArgb(0, 0, 0, 0);
+            panel1.Location = new Point(52, 183);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(569, 93);
+            panel1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(64, 66);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(63, 63);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(55, 52, 75);
+            panel2.Location = new Point(42, 144);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(592, 11);
+            panel2.TabIndex = 12;
             // 
             // Interfaz
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(802, 453);
+            BackColor = Color.FromArgb(33, 31, 45);
+            ClientSize = new Size(682, 543);
+            Controls.Add(panel2);
             Controls.Add(label4);
+            Controls.Add(pictureBox1);
             Controls.Add(combType);
+            Controls.Add(panel1);
             Controls.Add(combCommands);
             Controls.Add(label3);
             Controls.Add(btnInit);
-            Controls.Add(btnClose);
-            Controls.Add(btnOpen);
-            Controls.Add(combPorts);
-            Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -160,6 +229,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DLL App";
             Load += Interfaz_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,14 +239,17 @@
         #endregion
 
         private Label label1;
+        private Button btnInit;
         private Label label2;
         private ComboBox combPorts;
         private Button btnOpen;
         private Button btnClose;
-        private Button btnInit;
         private Label label3;
         private ComboBox combCommands;
         private ComboBox combType;
         private Label label4;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Panel panel2;
     }
 }

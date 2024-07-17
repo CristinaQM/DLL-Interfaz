@@ -14,3 +14,5 @@ C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\refint\DL
 C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.pdb
 C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.genruntimeconfig.cache
 C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\ref\DLL_App.dll
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.sourcelink.json
+C:\Users\usuario\source\repos\DLL_App\DLL_App\obj\Debug\net8.0-windows\DLL_App.Properties.Resources.resources
