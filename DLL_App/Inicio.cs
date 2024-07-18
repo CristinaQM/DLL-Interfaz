@@ -139,11 +139,13 @@ namespace DLL_App
         private void btnSend_Click(object sender, EventArgs e)
         {
             byte[] response_bytes = getCommandResponse();
-            string response_string = BitConverter.ToString(response_bytes);
+            string response_string = decodeBytes(response_bytes);
 
-            txtboxResp.Text = formatHexString(response_string,16);
+            txtboxResp.Text = response_string;
+
             txtboxResp.Multiline = true;
-            txtboxResp.ScrollBars = ScrollBars.Vertical;
+            txtboxResp.WordWrap = true;
+            txtboxResp.Size = new System.Drawing.Size(700, 100);
 
 
         }
@@ -154,26 +156,22 @@ namespace DLL_App
             byte[] response;
 
             List<byte> result = new List<byte>();
-            result.AddRange([0xEE, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0xEE]);
+            result.AddRange([0xEE,0x01,0x02,0x03,0x04,0x05,0x06,0xEE]);
 
             response = result.ToArray();
 
             return response;
         }
 
-        private string formatHexString(string hexString, int itemsPerLine)
+        private string decodeBytes(byte[] bytes)
         {
-            string[] items = hexString.Split(new char[] { '-' }, StringSplitOptions.None);
-            string formattedString = "";
-            for (int i = 0; i < items.Length; i++)
-            {
-                if (i > 0 && i % itemsPerLine == 0)
-                {
-                    formattedString += Environment.NewLine;
-                }
-                formattedString += items[i] + " ";
-            }
-            return formattedString.TrimEnd(new char[] { ' ' });
+            string data = "";
+            data += "Decoded Data";
+            data += Environment.NewLine;
+            data += "This is just an Example";
+            return data;
         }
+
+
     }
 }

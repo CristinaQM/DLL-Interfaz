@@ -238,9 +238,9 @@
             txtboxResp.BorderStyle = BorderStyle.None;
             txtboxResp.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtboxResp.ForeColor = Color.White;
-            txtboxResp.Location = new Point(22, 23);
+            txtboxResp.Location = new Point(10, 30);
             txtboxResp.Name = "txtboxResp";
-            txtboxResp.Size = new Size(518, 21);
+            txtboxResp.Size = new Size(569, 21);
             txtboxResp.TabIndex = 14;
             // 
             // Interfaz
