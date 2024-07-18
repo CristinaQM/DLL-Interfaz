@@ -50,8 +50,10 @@ namespace DLL_App
         {
             btnOpen.Enabled = false;
             btnClose.Enabled = false;
-            btnInit.Enabled = false;
+            btnSend.Enabled = false;
             combCommands.Enabled = false;
+
+            txtboxResp.Text = "";
 
             //Get ComboBox Data Functions
             GetAvailablePorts();
@@ -84,11 +86,11 @@ namespace DLL_App
 
             if (combType.SelectedItem != null && combCommands.SelectedItem != null)
             {
-                btnInit.Enabled = true;
+                btnSend.Enabled = true;
             }
             else
             {
-                btnInit.Enabled = false;
+                btnSend.Enabled = false;
             }
 
         }
@@ -111,11 +113,11 @@ namespace DLL_App
 
             if (combPorts.SelectedItem != null && combCommands.SelectedItem != null)
             {
-                btnInit.Enabled = true;
+                btnSend.Enabled = true;
             }
             else
             {
-                btnInit.Enabled = false;
+                btnSend.Enabled = false;
             }
 
 
@@ -125,12 +127,35 @@ namespace DLL_App
         {
             if (combPorts.SelectedItem != null)
             {
-                btnInit.Enabled = true;
+                btnSend.Enabled = true;
             }
             else
             {
-                btnInit.Enabled = false;
+                btnSend.Enabled = false;
             }
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            byte[] response_bytes = getCommandResponse();
+            string response_string = BitConverter.ToString(response_bytes);
+
+            txtboxResp.Text = response_string;
+
+
+        }
+
+        private byte[] getCommandResponse()
+        {
+            //MODIFY ARRAY VALUE LATER
+            byte[] response;
+
+            List<byte> result = new List<byte>();
+            result.AddRange([0xEE, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0x01, 0x01, 0x02, 0x03, 0xEE]);
+
+            response = result.ToArray();
+
+            return response;
         }
     }
 }

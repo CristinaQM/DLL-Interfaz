@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Interfaz));
             label1 = new Label();
-            btnInit = new Button();
+            btnSend = new Button();
             label2 = new Label();
             combPorts = new ComboBox();
             btnOpen = new Button();
@@ -42,8 +42,12 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            label5 = new Label();
+            panel3 = new Panel();
+            txtboxResp = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -57,20 +61,20 @@
             label1.TabIndex = 0;
             label1.Text = "AMI DLL";
             // 
-            // btnInit
+            // btnSend
             // 
-            btnInit.BackColor = Color.FromArgb(240, 43, 83);
-            btnInit.FlatAppearance.BorderSize = 0;
-            btnInit.FlatStyle = FlatStyle.Flat;
-            btnInit.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInit.ForeColor = Color.White;
-            btnInit.Location = new Point(524, 453);
-            btnInit.Name = "btnInit";
-            btnInit.Size = new Size(97, 44);
-            btnInit.TabIndex = 5;
-            btnInit.Text = "Init";
-            btnInit.UseVisualStyleBackColor = false;
-            btnInit.Click += btnInit_Click;
+            btnSend.BackColor = Color.FromArgb(240, 43, 83);
+            btnSend.FlatAppearance.BorderSize = 0;
+            btnSend.FlatStyle = FlatStyle.Flat;
+            btnSend.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSend.ForeColor = Color.White;
+            btnSend.Location = new Point(524, 418);
+            btnSend.Name = "btnSend";
+            btnSend.Size = new Size(97, 44);
+            btnSend.TabIndex = 5;
+            btnSend.Text = "Send";
+            btnSend.UseVisualStyleBackColor = false;
+            btnSend.Click += btnSend_Click;
             // 
             // label2
             // 
@@ -208,12 +212,44 @@
             panel2.Size = new Size(592, 11);
             panel2.TabIndex = 12;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(64, 475);
+            label5.Name = "label5";
+            label5.Size = new Size(102, 25);
+            label5.TabIndex = 13;
+            label5.Text = "Response";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(55, 52, 75);
+            panel3.Controls.Add(txtboxResp);
+            panel3.Location = new Point(42, 516);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(592, 110);
+            panel3.TabIndex = 13;
+            // 
+            // txtboxResp
+            // 
+            txtboxResp.BackColor = Color.FromArgb(55, 52, 75);
+            txtboxResp.BorderStyle = BorderStyle.None;
+            txtboxResp.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtboxResp.Location = new Point(22, 23);
+            txtboxResp.Name = "txtboxResp";
+            txtboxResp.Size = new Size(518, 21);
+            txtboxResp.TabIndex = 14;
+            // 
             // Interfaz
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 31, 45);
-            ClientSize = new Size(682, 543);
+            ClientSize = new Size(682, 667);
+            Controls.Add(panel3);
+            Controls.Add(label5);
             Controls.Add(panel2);
             Controls.Add(label4);
             Controls.Add(pictureBox1);
@@ -221,7 +257,7 @@
             Controls.Add(panel1);
             Controls.Add(combCommands);
             Controls.Add(label3);
-            Controls.Add(btnInit);
+            Controls.Add(btnSend);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -232,6 +268,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -239,7 +277,7 @@
         #endregion
 
         private Label label1;
-        private Button btnInit;
+        private Button btnSend;
         private Label label2;
         private ComboBox combPorts;
         private Button btnOpen;
@@ -251,5 +289,8 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Panel panel2;
+        private Label label5;
+        private Panel panel3;
+        private TextBox txtboxResp;
     }
 }
