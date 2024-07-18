@@ -54,6 +54,7 @@ namespace DLL_App
             combCommands.Enabled = false;
 
             txtboxResp.Text = "";
+            txtboxResp.ReadOnly = true;  
 
             //Get ComboBox Data Functions
             GetAvailablePorts();
@@ -140,7 +141,9 @@ namespace DLL_App
             byte[] response_bytes = getCommandResponse();
             string response_string = BitConverter.ToString(response_bytes);
 
-            txtboxResp.Text = response_string;
+            txtboxResp.Text = formatHexString(response_string,16);
+            txtboxResp.Multiline = true;
+            txtboxResp.ScrollBars = ScrollBars.Vertical;
 
 
         }
@@ -156,6 +159,21 @@ namespace DLL_App
             response = result.ToArray();
 
             return response;
+        }
+
+        private string formatHexString(string hexString, int itemsPerLine)
+        {
+            string[] items = hexString.Split(new char[] { '-' }, StringSplitOptions.None);
+            string formattedString = "";
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (i > 0 && i % itemsPerLine == 0)
+                {
+                    formattedString += Environment.NewLine;
+                }
+                formattedString += items[i] + " ";
+            }
+            return formattedString.TrimEnd(new char[] { ' ' });
         }
     }
 }
