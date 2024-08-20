@@ -1,177 +1,349 @@
+using AmiDLL;
+using System.IO.Ports;
+
 namespace DLL_App
 {
-    public partial class Interfaz : Form
-    {
-        //ComboBox Data
-        String[] available_types = ["Write", "Read", "Exec"];
-        String[] available_ports;
+	public partial class Interfaz : Form
+	{
+		readonly string[] BaudRates = ["1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200", "460800", "921600", "230400"];
 
-        List<Dictionary<string, dynamic>> commands = new List<Dictionary<string, dynamic>>();
+		EzmAmi? ezmAmi = null;
 
-        public Interfaz()
-        {
-            InitializeComponent();
+		readonly string[] Commands = [
+			"GetMacAddress",
+			"GetMCU",
+			"GetFirmwareVersion",
+			"GetHardwareVersion",
+			"ExecReset",
+			"ExecOpticalDisable",
+			"GetAssemblyPartNumber",
+			"GetSerialNumber",
+			"GetDateCode",
+			"GetFccId",
+			"GetIcId",
+			"GetVoltage",
+			"GetTemperature",
+			"ExecRestoreFactory",
+			"GetCustomerPassword",
+			"GetReaderPassword",
+			"GetMasterPassword",
+			"SetCustomerPassword",
+			"SetReaderPassword",
+			"SetMasterPassword",
+			"ExecResetPassword",
+			"GetStReading",
+			"GetMtReading",
+			"SetStReading",
+			"SetMtReading",
+			"GetCellularModemModel",
+			"GetCellularModemVersion",
+			"GetCellularImei",
+			"GetCellularFwVersion",
+			"GetCellularRat",
+			"GetCellularManufacturer",
+			"GetCellularRssi",
+			"GetCellularCcid",
+			"ExecCellularDisableEcho",
+			"ExecCellularModemTurnOn",
+			"ExecCellularModemTurnOff",
+			"GetWifiMac",
+			"GetWifiTechnology",
+			"GetBluetoothMac",
+			"GetBluetoothTechnology",
+			"GetLotInfo",
+			"GetMeterTypeInfo",
+			"SetLotInfo",
+			"SetMeterTypeInfo",
+			"ExecBootMode",
+			"ExecFactoryMode",
+			"ExecQuietMode",
+			"ExecEndSession",
+			"ExecEndSessionAndReset",
+			"SetUtilityTesting",
+			"SetIpActColTesting",
+			"SetPortActColTesting",
+			"SetPortMonitorTesting",
+			"ExecBackupAddresing",
+			"ExecRestoreAddresing",
+		];
 
-            //DELETE THIS LATER
-            Dictionary<string, dynamic> command1 = new Dictionary<string, dynamic>()
-        {
-            { "code", "0x01" },
-            { "type", "Write" }
-        };
-            Dictionary<string, dynamic> command2 = new Dictionary<string, dynamic>()
-        {
-            { "code", "0x02" },
-            { "type", "Read" }
-        };
+		public Interfaz()
+		{
+			InitializeComponent();
+		}
 
-            //EDIT LIST WITH REAL DATA
-            commands.Add(command1);
-            commands.Add(command2);
+		private async void btnOpen_Click(object sender, EventArgs e)
+		{
+			ezmAmi = new EzmAmi((string)combPorts.SelectedItem, int.Parse((string)combBaudRate.SelectedItem));
 
-            available_ports = ["Port1", "Port2", "Port3"];
-        }
+			combPorts.Enabled = false;
+			combBaudRate.Enabled = false;
 
-        private void btnInit_Click(object sender, EventArgs e)
-        {
+			ezmAmi.OpenSerialPort();
 
-        }
+			combCommands.Enabled = true;
+		}
 
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			if (ezmAmi != null) ezmAmi.CloseSerialPort();
 
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Interfaz_Load(object sender, EventArgs e)
-        {
-            btnOpen.Enabled = false;
-            btnClose.Enabled = false;
-            btnSend.Enabled = false;
-            combCommands.Enabled = false;
-
-            txtboxResp.Text = "";
-            txtboxResp.ReadOnly = true;  
-
-            //Get ComboBox Data Functions
-            GetAvailablePorts();
-            GetCmdTypes();
-
-
-        }
-
-
-        private void GetAvailablePorts()
-        {
-            for (int i = 0; i < available_ports.Length; i++)
-            {
-                combPorts.Items.Add(available_ports[i]);
-            }
-        }
-
-        private void GetCmdTypes()
-        {
-            for (int i = 0; i < available_types.Length; i++)
-            {
-                combType.Items.Add(available_types[i]);
-            }
-        }
-
-        private void combPorts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnOpen.Enabled = true;
-            btnClose.Enabled = true;
-
-            if (combType.SelectedItem != null && combCommands.SelectedItem != null)
-            {
-                btnSend.Enabled = true;
-            }
-            else
-            {
-                btnSend.Enabled = false;
-            }
-
-        }
-
-        private void combType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            combCommands.Items.Clear();
-
-            string selectedType = combType.SelectedItem.ToString();
-            combCommands.Enabled = true;
-
-            foreach (var cmd in commands)
-            {
-                if (cmd.ContainsKey("code") && cmd["type"] == selectedType)
-                {
-                    combCommands.Items.Add(cmd["code"]);
-                }
-            }
-
-            if (combPorts.SelectedItem != null && combCommands.SelectedItem != null)
-            {
-                btnSend.Enabled = true;
-            }
-            else
-            {
-                btnSend.Enabled = false;
-            }
+			ezmAmi = null;
+			combPorts.Enabled = true;
+			combBaudRate.Enabled = true;
 
 
-        }
-
-        private void combCommands_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (combPorts.SelectedItem != null)
-            {
-                btnSend.Enabled = true;
-            }
-            else
-            {
-                btnSend.Enabled = false;
-            }
-        }
-
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            byte[] response_bytes = getCommandResponse();
-            string response_string = decodeBytes(response_bytes);
-
-            txtboxResp.Text = response_string;
-
-            txtboxResp.Multiline = true;
-            txtboxResp.WordWrap = true;
-            txtboxResp.Size = new System.Drawing.Size(700, 100);
+			combCommands.Enabled = false;
 
 
-        }
+			lblParamValue.Visible = false;
+			panelParamValue.Visible = false;
+			textboxParamValue.Visible = false;
 
-        private byte[] getCommandResponse()
-        {
-            //MODIFY ARRAY VALUE LATER
-            byte[] response;
+			lblMessages.Text = "";
+			txtboxResp.Text = "";
 
-            List<byte> result = new List<byte>();
-            result.AddRange([0xEE,0x01,0x02,0x03,0x04,0x05,0x06,0xEE]);
+			combCommands.SelectedItem = null;
+		}
 
-            response = result.ToArray();
+		private void Interfaz_Load(object sender, EventArgs e)
+		{
+			btnOpen.Enabled = false;
+			btnClose.Enabled = false;
+			btnHandshake.Enabled = false;
+			btnSend.Enabled = false;
+			combCommands.Enabled = false;
 
-            return response;
-        }
+			txtboxResp.Text = "";
+			txtboxResp.ReadOnly = true;
 
-        private string decodeBytes(byte[] bytes)
-        {
-            string data = "";
-            data += "Decoded Data";
-            data += Environment.NewLine;
-            data += "This is just an Example";
-            return data;
-        }
+			lblParamValue.Visible = false;
+			panelParamValue.Visible = false;
+			textboxParamValue.Visible = false;
+
+			combBaudRate.Items.AddRange(BaudRates);
+			combCommands.Items.AddRange(Commands);
+
+			combPorts.Select();
 
 
-    }
+			GetAvailablePorts();
+		}
+
+
+		private void GetAvailablePorts()
+		{
+			combPorts.Items.Clear();
+
+			combPorts.Items.AddRange(SerialPort.GetPortNames());
+		}
+
+		private void combPorts_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (combPorts.SelectedItem != null && combBaudRate.SelectedItem != null)
+			{
+				btnOpen.Enabled = true;
+				btnClose.Enabled = true;
+				btnHandshake.Enabled = true;
+			}
+		}
+
+		private void combBaudRate_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (combPorts.SelectedItem != null && combBaudRate.SelectedItem != null)
+			{
+				btnOpen.Enabled = true;
+				btnClose.Enabled = true;
+				btnHandshake.Enabled = true;
+			}
+		}
+
+		private void combCommands_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			lblParamValue.Visible = false;
+			panelParamValue.Visible = false;
+			textboxParamValue.Visible = false;
+
+			if (combCommands.SelectedItem != null)
+			{
+				btnSend.Enabled = true;
+				if (combCommands.SelectedItem.ToString().StartsWith("Set") ||
+					(new List<string> { "ExecReset", "ExecOpticalDisable", "SetStReading", "SetMtReading", "ExecEndSessionAndReset", }).Contains(combCommands.SelectedItem.ToString()))
+				{
+					lblParamValue.Visible = true;
+					panelParamValue.Visible = true;
+					textboxParamValue.Visible = true;
+				}
+			}
+			else
+			{
+				btnSend.Enabled = false;
+			}
+		}
+
+		private void btnSend_Click(object sender, EventArgs e)
+		{
+			txtboxResp.Text = "";
+
+			dynamic response = getCommandResponse();
+
+			txtboxResp.Text = response.ToString();
+
+			txtboxResp.Multiline = true;
+			txtboxResp.WordWrap = true;
+			txtboxResp.Size = new System.Drawing.Size(700, 100);
+		}
+
+		private dynamic getCommandResponse()
+		{
+			lblMessages.Text = combCommands.SelectedItem.ToString();
+
+			uint? numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
+
+			switch (combCommands.SelectedItem.ToString())
+			{
+				case "GetMacAddress":
+					return ezmAmi.GetMacAddress();
+				case "GetMCU":
+					return ezmAmi.GetMCU();
+				case "GetFirmwareVersion":
+					return ezmAmi.GetFirmwareVersion();
+				case "GetHardwareVersion":
+					return ezmAmi.GetHardwareVersion();
+				case "ExecReset":
+					return ezmAmi.ExecReset((byte?)numericOptionalParameter);
+				case "ExecOpticalDisable":
+					return ezmAmi.ExecOpticalDisable((ushort?)numericOptionalParameter);
+				case "GetAssemblyPartNumber":
+					return ezmAmi.GetAssemblyPartNumber();
+				case "GetSerialNumber":
+					return ezmAmi.GetSerialNumber();
+				case "GetDateCode":
+					return ezmAmi.GetDateCode();
+				case "GetFccId":
+					return ezmAmi.GetFccId();
+				case "GetIcId":
+					return ezmAmi.GetIcId();
+				case "GetVoltage":
+					return ezmAmi.GetVoltage();
+				case "GetTemperature":
+					return ezmAmi.GetTemperature();
+				case "ExecRestoreFactory":
+					return ezmAmi.ExecRestoreFactory();
+				case "GetCustomerPassword":
+					return ezmAmi.GetCustomerPassword();
+				case "GetReaderPassword":
+					return ezmAmi.GetReaderPassword();
+				case "GetMasterPassword":
+					return ezmAmi.GetMasterPassword();
+				case "SetCustomerPassword":
+					return ezmAmi.SetCustomerPassword(textboxParamValue.Text);
+				case "SetReaderPassword":
+					return ezmAmi.SetReaderPassword(textboxParamValue.Text);
+				case "SetMasterPassword":
+					return ezmAmi.SetMasterPassword(textboxParamValue.Text);
+				case "ExecResetPassword":
+					return ezmAmi.ExecResetPassword();
+				case "GetStReading":
+					return ezmAmi.GetStReading();
+				case "GetMtReading":
+					return ezmAmi.GetMtReading();
+				case "SetStReading":
+					return ezmAmi.SetStReading(byte.Parse(textboxParamValue.Text));
+				case "SetMtReading":
+					return ezmAmi.SetMtReading(byte.Parse(textboxParamValue.Text));
+				case "GetCellularModemModel":
+					return ezmAmi.GetCellularModemModel();
+				case "GetCellularModemVersion":
+					return ezmAmi.GetCellularModemVersion();
+				case "GetCellularImei":
+					return ezmAmi.GetCellularImei();
+				case "GetCellularFwVersion":
+					return ezmAmi.GetCellularFwVersion();
+				case "GetCellularRat":
+					return ezmAmi.GetCellularRat();
+				case "GetCellularManufacturer":
+					return ezmAmi.GetCellularManufacturer();
+				case "GetCellularRssi":
+					return ezmAmi.GetCellularRssi();
+				case "GetCellularCcid":
+					return ezmAmi.GetCellularCcid();
+				case "ExecCellularDisableEcho":
+					return ezmAmi.ExecCellularDisableEcho();
+				case "ExecCellularModemTurnOn":
+					return ezmAmi.ExecCellularModemTurnOn();
+				case "ExecCellularModemTurnOff":
+					return ezmAmi.ExecCellularModemTurnOff();
+				case "GetWifiMac":
+					return ezmAmi.GetWifiMac();
+				case "GetWifiTechnology":
+					return ezmAmi.GetWifiTechnology();
+				case "GetBluetoothMac":
+					return ezmAmi.GetBluetoothMac();
+				case "GetBluetoothTechnology":
+					return ezmAmi.GetBluetoothTechnology();
+				case "GetLotInfo":
+					return ezmAmi.GetLotInfo();
+				case "GetMeterTypeInfo":
+					return ezmAmi.GetMeterTypeInfo();
+				case "SetLotInfo":
+					return ezmAmi.SetLotInfo(textboxParamValue.Text);
+				case "SetMeterTypeInfo":
+					return ezmAmi.SetMeterTypeInfo(textboxParamValue.Text);
+				case "ExecBootMode":
+					return ezmAmi.ExecBootMode();
+				case "ExecFactoryMode":
+					return ezmAmi.ExecFactoryMode();
+				case "ExecQuietMode":
+					return ezmAmi.ExecQuietMode();
+				case "ExecEndSession":
+					return ezmAmi.ExecEndSession();
+				case "ExecEndSessionAndReset":
+					return ezmAmi.ExecEndSessionAndReset((byte?)numericOptionalParameter);
+				case "SetUtilityTesting":
+					return ezmAmi.SetUtilityTesting(ushort.Parse(textboxParamValue.Text));
+				case "SetIpActColTesting":
+					return ezmAmi.SetIpActColTesting(uint.Parse(textboxParamValue.Text));
+				case "SetPortActColTesting":
+					return ezmAmi.SetPortActColTesting(ushort.Parse(textboxParamValue.Text));
+				case "SetPortMonitorTesting":
+					return ezmAmi.SetPortMonitorTesting(ushort.Parse(textboxParamValue.Text));
+				case "ExecBackupAddresing":
+					return ezmAmi.ExecBackupAddresing();
+				case "ExecRestoreAddresing":
+					return ezmAmi.ExecRestoreAddresing();
+			}
+
+			return "";
+		}
+
+		private void btnReloadPorts_Click(object sender, EventArgs e)
+		{
+			GetAvailablePorts();
+		}
+
+		private void btnHandshake_Click(object sender, EventArgs e)
+		{
+			if (ezmAmi.DoHandshake())
+			{
+				lblMessages.Text = "Handshake completed successfully!";
+			}
+			else
+			{
+				lblMessages.Text = "Can't complete handshake. Maybe it has been done before?";
+			}
+		}
+
+		private void btnDefaultAddressing_Click(object sender, EventArgs e)
+		{
+			if (ezmAmi.SetDefaultAddressing() == AmiDLL.Enums.Status.OK)
+			{
+				lblMessages.Text = "Default Addressing set successfully!";
+			}
+			else
+			{
+				lblMessages.Text = "Error while setting default addressing";
+			}
+		}
+	}
 }

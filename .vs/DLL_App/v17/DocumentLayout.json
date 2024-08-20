@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\usuario\\source\\repos\\DLL_App\\",
+  "WorkspaceRootPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|c:\\users\\usuario\\source\\repos\\dll_app\\dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|c:\\users\\joistaus\\documents\\ezmprojects\\dll-interfaz\\dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|solutionrelative:dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|c:\\users\\usuario\\source\\repos\\dll_app\\dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|c:\\users\\joistaus\\documents\\ezmprojects\\dll-interfaz\\dll_app\\inicio.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|solutionrelative:dll_app\\inicio.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9A3C7AE4-5759-406D-BF4A-85598266E764}|DLL_App\\DLL_App.csproj|solutionrelative:dll_app\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -18,32 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Inicio.cs",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs",
+              "DocumentIndex": 2,
+              "Title": "Inicio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\Inicio.cs",
               "RelativeDocumentMoniker": "DLL_App\\Inicio.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs",
-              "RelativeToolTip": "DLL_App\\Inicio.cs",
-              "ViewState": "AQIAAJoAAAAAAAAAAAAIwKoAAAAiAAAA",
+              "ToolTip": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\Inicio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "DLL_App\\Inicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T17:59:08.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T22:54:24.552Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Inicio.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs",
-              "RelativeDocumentMoniker": "DLL_App\\Inicio.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\Inicio.cs [Dise\u00F1o]",
-              "RelativeToolTip": "DLL_App\\Inicio.cs [Dise\u00F1o]",
+              "Title": "Inicio.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\Inicio.Designer.cs",
+              "RelativeDocumentMoniker": "DLL_App\\Inicio.Designer.cs",
+              "ToolTip": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\Inicio.Designer.cs",
+              "RelativeToolTip": "DLL_App\\Inicio.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T07:03:56.878Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-07-21T22:45:25.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\Inicio.cs",
+              "RelativeDocumentMoniker": "DLL_App\\Inicio.cs",
+              "ToolTip": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\Inicio.cs",
+              "RelativeToolTip": "DLL_App\\Inicio.cs",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAIwOoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T17:59:08.919Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\DLL_App.csproj": {}
+    "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\DLL_App.csproj": {
+    "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\DLL_App.csproj",
+        "projectUniqueName": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj",
         "projectName": "DLL_App",
-        "projectPath": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\DLL_App.csproj",
-        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\obj\\",
+        "projectPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj",
+        "packagesPath": "C:\\Users\\Joistaus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joistaus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,6 +49,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

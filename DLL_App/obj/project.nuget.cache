@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "MO9OlAslybs=",
+  "dgSpecHash": "OeFDdBqmt+U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\usuario\\source\\repos\\DLL_App\\DLL_App\\DLL_App.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Joistaus\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Joistaus\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Joistaus\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Joistaus\\.nuget\\packages\\runtime.native.system.io.ports\\8.0.0\\runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Joistaus\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Joistaus\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Joistaus\\.nuget\\packages\\system.io.ports\\8.0.0\\system.io.ports.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
