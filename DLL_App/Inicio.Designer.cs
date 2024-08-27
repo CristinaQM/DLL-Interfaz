@@ -38,6 +38,7 @@
 			label3 = new Label();
 			combCommands = new ComboBox();
 			panel1 = new Panel();
+			btnDefaultAddressing = new Button();
 			btnHandshake = new Button();
 			btnReloadPorts = new Button();
 			combBaudRate = new ComboBox();
@@ -51,7 +52,6 @@
 			panelParamValue = new Panel();
 			textboxParamValue = new TextBox();
 			lblMessages = new Label();
-			btnDefaultAddressing = new Button();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel3.SuspendLayout();
@@ -118,10 +118,10 @@
 			btnOpen.FlatStyle = FlatStyle.Flat;
 			btnOpen.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Bold);
 			btnOpen.ForeColor = Color.White;
-			btnOpen.Location = new Point(359, 43);
+			btnOpen.Location = new Point(349, 43);
 			btnOpen.Margin = new Padding(3, 2, 3, 2);
 			btnOpen.Name = "btnOpen";
-			btnOpen.Size = new Size(57, 27);
+			btnOpen.Size = new Size(69, 27);
 			btnOpen.TabIndex = 3;
 			btnOpen.Text = "Open";
 			btnOpen.UseVisualStyleBackColor = false;
@@ -134,10 +134,10 @@
 			btnClose.FlatStyle = FlatStyle.Flat;
 			btnClose.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Bold);
 			btnClose.ForeColor = Color.White;
-			btnClose.Location = new Point(436, 43);
+			btnClose.Location = new Point(424, 43);
 			btnClose.Margin = new Padding(3, 2, 3, 2);
 			btnClose.Name = "btnClose";
-			btnClose.Size = new Size(57, 27);
+			btnClose.Size = new Size(69, 27);
 			btnClose.TabIndex = 4;
 			btnClose.Text = "Close";
 			btnClose.UseVisualStyleBackColor = false;
@@ -187,6 +187,22 @@
 			panel1.Name = "panel1";
 			panel1.Size = new Size(518, 118);
 			panel1.TabIndex = 10;
+			// 
+			// btnDefaultAddressing
+			// 
+			btnDefaultAddressing.BackColor = Color.FromArgb(240, 43, 83);
+			btnDefaultAddressing.FlatAppearance.BorderSize = 0;
+			btnDefaultAddressing.FlatStyle = FlatStyle.Flat;
+			btnDefaultAddressing.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Bold);
+			btnDefaultAddressing.ForeColor = Color.White;
+			btnDefaultAddressing.Location = new Point(274, 79);
+			btnDefaultAddressing.Margin = new Padding(3, 2, 3, 2);
+			btnDefaultAddressing.Name = "btnDefaultAddressing";
+			btnDefaultAddressing.Size = new Size(219, 27);
+			btnDefaultAddressing.TabIndex = 9;
+			btnDefaultAddressing.Text = "Init Test";
+			btnDefaultAddressing.UseVisualStyleBackColor = false;
+			btnDefaultAddressing.Click += btnDefaultAddressing_Click;
 			// 
 			// btnHandshake
 			// 
@@ -281,10 +297,10 @@
 			// 
 			panel3.BackColor = Color.FromArgb(55, 52, 75);
 			panel3.Controls.Add(txtboxResp);
-			panel3.Location = new Point(37, 434);
+			panel3.Location = new Point(37, 462);
 			panel3.Margin = new Padding(3, 2, 3, 2);
 			panel3.Name = "panel3";
-			panel3.Size = new Size(518, 82);
+			panel3.Size = new Size(518, 54);
 			panel3.TabIndex = 13;
 			// 
 			// txtboxResp
@@ -293,7 +309,7 @@
 			txtboxResp.BorderStyle = BorderStyle.None;
 			txtboxResp.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			txtboxResp.ForeColor = Color.White;
-			txtboxResp.Location = new Point(9, 22);
+			txtboxResp.Location = new Point(9, 16);
 			txtboxResp.Margin = new Padding(3, 2, 3, 2);
 			txtboxResp.Name = "txtboxResp";
 			txtboxResp.Size = new Size(498, 17);
@@ -337,27 +353,11 @@
 			lblMessages.AutoSize = true;
 			lblMessages.Font = new Font("Franklin Gothic Book", 12F, FontStyle.Bold);
 			lblMessages.ForeColor = Color.Gray;
-			lblMessages.Location = new Point(56, 13);
+			lblMessages.Location = new Point(64, 430);
 			lblMessages.Name = "lblMessages";
 			lblMessages.Size = new Size(0, 21);
 			lblMessages.TabIndex = 8;
 			lblMessages.TextAlign = ContentAlignment.MiddleCenter;
-			// 
-			// btnDefaultAddressing
-			// 
-			btnDefaultAddressing.BackColor = Color.FromArgb(240, 43, 83);
-			btnDefaultAddressing.FlatAppearance.BorderSize = 0;
-			btnDefaultAddressing.FlatStyle = FlatStyle.Flat;
-			btnDefaultAddressing.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Bold);
-			btnDefaultAddressing.ForeColor = Color.White;
-			btnDefaultAddressing.Location = new Point(274, 79);
-			btnDefaultAddressing.Margin = new Padding(3, 2, 3, 2);
-			btnDefaultAddressing.Name = "btnDefaultAddressing";
-			btnDefaultAddressing.Size = new Size(219, 27);
-			btnDefaultAddressing.TabIndex = 9;
-			btnDefaultAddressing.Text = "Default Addressing";
-			btnDefaultAddressing.UseVisualStyleBackColor = false;
-			btnDefaultAddressing.Click += btnDefaultAddressing_Click;
 			// 
 			// Interfaz
 			// 

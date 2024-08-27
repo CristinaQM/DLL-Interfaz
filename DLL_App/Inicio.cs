@@ -198,7 +198,7 @@ namespace DLL_App
 		{
 			lblMessages.Text = combCommands.SelectedItem.ToString();
 
-			uint? numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
+			uint? numericOptionalParameter;
 
 			switch (combCommands.SelectedItem.ToString())
 			{
@@ -211,8 +211,10 @@ namespace DLL_App
 				case "GetHardwareVersion":
 					return ezmAmi.GetHardwareVersion();
 				case "ExecReset":
+					numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
 					return ezmAmi.ExecReset((byte?)numericOptionalParameter);
 				case "ExecOpticalDisable":
+					numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
 					return ezmAmi.ExecOpticalDisable((ushort?)numericOptionalParameter);
 				case "GetAssemblyPartNumber":
 					return ezmAmi.GetAssemblyPartNumber();
@@ -299,6 +301,7 @@ namespace DLL_App
 				case "ExecEndSession":
 					return ezmAmi.ExecEndSession();
 				case "ExecEndSessionAndReset":
+					numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
 					return ezmAmi.ExecEndSessionAndReset((byte?)numericOptionalParameter);
 				case "SetUtilityTesting":
 					return ezmAmi.SetUtilityTesting(ushort.Parse(textboxParamValue.Text));
