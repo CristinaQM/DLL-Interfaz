@@ -187,7 +187,7 @@ namespace DLL_App
 
 			dynamic response = getCommandResponse();
 
-			txtboxResp.Text = response.ToString();
+			txtboxResp.Text = (response == null) ? "NULL" : response.ToString();
 
 			txtboxResp.Multiline = true;
 			txtboxResp.WordWrap = true;
