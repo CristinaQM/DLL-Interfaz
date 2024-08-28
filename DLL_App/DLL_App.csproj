@@ -16,6 +16,15 @@
     <Reference Include="AmiDLL">
       <HintPath>..\dlls\AmiDLL.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Cryptography">
+      <HintPath>..\dlls\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Curve25519">
+      <HintPath>..\dlls\Curve25519.dll</HintPath>
+    </Reference>
+    <Reference Include="RJCP.SerialPortStream">
+      <HintPath>..\dlls\RJCP.SerialPortStream.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
