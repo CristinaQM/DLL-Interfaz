@@ -1,5 +1,6 @@
 using AmiDLL;
 using System.IO.Ports;
+using System.Reflection;
 
 namespace DLL_App
 {
@@ -14,6 +15,7 @@ namespace DLL_App
 			"GetMCU",
 			"GetFirmwareVersion",
 			"GetHardwareVersion",
+			"GetErrorFlags",
 			"ExecReset",
 			"GetAssemblyPartNumber",
 			"GetSerialNumber",
@@ -22,6 +24,7 @@ namespace DLL_App
 			"GetIcId",
 			"GetVoltage",
 			"GetTemperature",
+			"GetICCID",
 			"ExecRestoreFactory",
 			"GetCustomerPassword",
 			"GetReaderPassword",
@@ -32,25 +35,25 @@ namespace DLL_App
 			"ExecResetPassword",
 			"GetStReading",
 			"SetStReading",
-			"GetCellularModemModel",
 			"GetCellularModemVersion",
 			"GetCellularImei",
 			"GetCellularFwVersion",
 			"GetCellularManufacturer",
+			"SetForceCarrier",
+			"SetPlmnIdFormat",
+			"SetPlmnIdName",
+			"SetForceRat",
 			"GetCellularRssi",
 			"GetCellularCcid",
 			"ExecCellularDisableEcho",
+			"ExecModuleForceCarrier",
 			"ExecCellularModemTurnOn",
 			"ExecCellularModemTurnOff",
 			"GetLotInfo",
-			"GetMeterTypeInfo",
-			"SetLotInfo",
-			"SetMeterTypeInfo",
 			"ExecBootMode",
 			"ExecFactoryMode",
 			"ExecQuietMode",
 			"ExecEndSession",
-			"ExecEndSessionAndReset",
 			"ExecBackupAddresing",
 			"ExecRestoreAddresing",
 		];
@@ -105,9 +108,15 @@ namespace DLL_App
 			txtboxResp.Text = "";
 			txtboxResp.ReadOnly = true;
 
+			txtBoxStatus.Text = "";
+			txtBoxStatus.ReadOnly = true;
+
 			lblParamValue.Visible = false;
 			panelParamValue.Visible = false;
 			textboxParamValue.Visible = false;
+
+			var version = Assembly.GetExecutingAssembly().GetName().Version;
+			lblAppVersion.Text = $"{version}";
 
 			combBaudRate.Items.AddRange(BaudRates);
 			combCommands.Items.AddRange(Commands);
@@ -156,7 +165,8 @@ namespace DLL_App
 			{
 				btnSend.Enabled = true;
 				if (combCommands.SelectedItem.ToString().StartsWith("Set") ||
-					(new List<string> { "ExecReset", "ExecOpticalDisable", "SetStReading", "SetMtReading", "ExecEndSessionAndReset", }).Contains(combCommands.SelectedItem.ToString()))
+					(new List<string> { "ExecReset", "ExecOpticalDisable", "SetStReading", "SetMtReading", "ExecEndSessionAndReset",
+										"SetForceCarrier", "SetPlmnIdFormat", "SetPlmnIdName", "SetForceRat"}).Contains(combCommands.SelectedItem.ToString()))
 				{
 					lblParamValue.Visible = true;
 					panelParamValue.Visible = true;
@@ -172,10 +182,12 @@ namespace DLL_App
 		private void btnSend_Click(object sender, EventArgs e)
 		{
 			txtboxResp.Text = "";
+			txtBoxStatus.Text = "";
 
 			dynamic response = getCommandResponse();
 
 			txtboxResp.Text = (response == null) ? "NULL" : response.ToString();
+			txtBoxStatus.Text = ezmAmi?.LastStatus().ToString();
 
 			txtboxResp.Multiline = true;
 			txtboxResp.WordWrap = true;
@@ -198,12 +210,14 @@ namespace DLL_App
 					return ezmAmi.GetFirmwareVersion();
 				case "GetHardwareVersion":
 					return ezmAmi.GetHardwareVersion();
+				case "GetErrorFlags":
+					return ezmAmi.GetErrorFlags();
 				case "ExecReset":
 					numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
 					return ezmAmi.ExecReset((byte?)numericOptionalParameter);
-				case "ExecOpticalDisable":
-					numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
-					return ezmAmi.ExecOpticalDisable((ushort?)numericOptionalParameter);
+				//case "ExecOpticalDisable":
+				//    numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
+				//    return ezmAmi.ExecOpticalDisable((ushort?)numericOptionalParameter);
 				case "GetAssemblyPartNumber":
 					return ezmAmi.GetAssemblyPartNumber();
 				case "GetSerialNumber":
@@ -218,6 +232,8 @@ namespace DLL_App
 					return ezmAmi.GetVoltage();
 				case "GetTemperature":
 					return ezmAmi.GetTemperature();
+				case "GetICCID":
+					return ezmAmi.GetICCID();
 				case "ExecRestoreFactory":
 					return ezmAmi.ExecRestoreFactory();
 				case "GetCustomerPassword":
@@ -236,50 +252,60 @@ namespace DLL_App
 					return ezmAmi.ExecResetPassword();
 				case "GetStReading":
 					return ezmAmi.GetStReading();
-				case "GetMtReading":
-					return ezmAmi.GetMtReading();
+				//case "GetMtReading":
+				//    return ezmAmi.GetMtReading();
 				case "SetStReading":
 					return ezmAmi.SetStReading(byte.Parse(textboxParamValue.Text));
-				case "SetMtReading":
-					return ezmAmi.SetMtReading(byte.Parse(textboxParamValue.Text));
-				case "GetCellularModemModel":
-					return ezmAmi.GetCellularModemModel();
+				//case "SetMtReading":
+				//    return ezmAmi.SetMtReading(byte.Parse(textboxParamValue.Text));
+				//case "GetCellularModemModel":
+				//    return ezmAmi.GetCellularModemModel();
 				case "GetCellularModemVersion":
 					return ezmAmi.GetCellularModemVersion();
 				case "GetCellularImei":
 					return ezmAmi.GetCellularImei();
 				case "GetCellularFwVersion":
 					return ezmAmi.GetCellularFwVersion();
-				case "GetCellularRat":
-					return ezmAmi.GetCellularRat();
+				//case "GetCellularRat":
+				//    return ezmAmi.GetCellularRat();
 				case "GetCellularManufacturer":
 					return ezmAmi.GetCellularManufacturer();
+				case "SetForceCarrier":
+					return ezmAmi.SetForceCarrier(uint.Parse(textboxParamValue.Text));
+				case "SetPlmnIdFormat":
+					return ezmAmi.SetPlmnIdFormat(uint.Parse(textboxParamValue.Text));
+				case "SetPlmnIdName":
+					return ezmAmi.SetPlmnIdName(textboxParamValue.Text);
+				case "SetForceRat":
+					return ezmAmi.SetForceRat(sbyte.Parse(textboxParamValue.Text));
 				case "GetCellularRssi":
 					return ezmAmi.GetCellularRssi();
 				case "GetCellularCcid":
 					return ezmAmi.GetCellularCcid();
 				case "ExecCellularDisableEcho":
 					return ezmAmi.ExecCellularDisableEcho();
+				case "ExecModuleForceCarrier":
+					return ezmAmi.ExecModuleForceCarrier();
 				case "ExecCellularModemTurnOn":
 					return ezmAmi.ExecCellularModemTurnOn();
 				case "ExecCellularModemTurnOff":
 					return ezmAmi.ExecCellularModemTurnOff();
-				case "GetWifiMac":
-					return ezmAmi.GetWifiMac();
-				case "GetWifiTechnology":
-					return ezmAmi.GetWifiTechnology();
-				case "GetBluetoothMac":
-					return ezmAmi.GetBluetoothMac();
-				case "GetBluetoothTechnology":
-					return ezmAmi.GetBluetoothTechnology();
+				//case "GetWifiMac":
+				//    return ezmAmi.GetWifiMac();
+				//case "GetWifiTechnology":
+				//    return ezmAmi.GetWifiTechnology();
+				//case "GetBluetoothMac":
+				//    return ezmAmi.GetBluetoothMac();
+				//case "GetBluetoothTechnology":
+				//    return ezmAmi.GetBluetoothTechnology();
 				case "GetLotInfo":
 					return ezmAmi.GetLotInfo();
-				case "GetMeterTypeInfo":
-					return ezmAmi.GetMeterTypeInfo();
-				case "SetLotInfo":
-					return ezmAmi.SetLotInfo(textboxParamValue.Text);
-				case "SetMeterTypeInfo":
-					return ezmAmi.SetMeterTypeInfo(textboxParamValue.Text);
+				//case "GetMeterTypeInfo":
+				//    return ezmAmi.GetMeterTypeInfo();
+				//case "SetLotInfo":
+				//    return ezmAmi.SetLotInfo(textboxParamValue.Text);
+				//case "SetMeterTypeInfo":
+				//    return ezmAmi.SetMeterTypeInfo(textboxParamValue.Text);
 				case "ExecBootMode":
 					return ezmAmi.ExecBootMode();
 				case "ExecFactoryMode":
@@ -288,17 +314,17 @@ namespace DLL_App
 					return ezmAmi.ExecQuietMode();
 				case "ExecEndSession":
 					return ezmAmi.ExecEndSession();
-				case "ExecEndSessionAndReset":
-					numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
-					return ezmAmi.ExecEndSessionAndReset((byte?)numericOptionalParameter);
-				case "SetUtilityTesting":
-					return ezmAmi.SetUtilityTesting(ushort.Parse(textboxParamValue.Text));
-				case "SetIpActColTesting":
-					return ezmAmi.SetIpActColTesting(uint.Parse(textboxParamValue.Text));
-				case "SetPortActColTesting":
-					return ezmAmi.SetPortActColTesting(ushort.Parse(textboxParamValue.Text));
-				case "SetPortMonitorTesting":
-					return ezmAmi.SetPortMonitorTesting(ushort.Parse(textboxParamValue.Text));
+				//case "ExecEndSessionAndReset":
+				//    numericOptionalParameter = textboxParamValue.Text.Length == 0 ? null : uint.Parse(textboxParamValue.Text);
+				//    return ezmAmi.ExecEndSessionAndReset((byte?)numericOptionalParameter);
+				//case "SetUtilityTesting":
+				//    return ezmAmi.SetUtilityTesting(ushort.Parse(textboxParamValue.Text));
+				//case "SetIpActColTesting":
+				//    return ezmAmi.SetIpActColTesting(uint.Parse(textboxParamValue.Text));
+				//case "SetPortActColTesting":
+				//    return ezmAmi.SetPortActColTesting(ushort.Parse(textboxParamValue.Text));
+				//case "SetPortMonitorTesting":
+				//    return ezmAmi.SetPortMonitorTesting(ushort.Parse(textboxParamValue.Text));
 				case "ExecBackupAddresing":
 					return ezmAmi.ExecBackupAddresing();
 				case "ExecRestoreAddresing":
@@ -329,11 +355,11 @@ namespace DLL_App
 		{
 			if (ezmAmi.SetDefaultAddressing() == AmiDLL.Enums.Status.OK)
 			{
-				lblMessages.Text = "Default Addressing set successfully!";
+				lblMessages.Text = "Test configuration set successfully!";
 			}
 			else
 			{
-				lblMessages.Text = "Error while setting default addressing";
+				lblMessages.Text = "Error while setting test configuration";
 			}
 		}
 	}

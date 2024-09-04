@@ -85,6 +85,15 @@
             "rid": "win"
           }
         }
+      },
+      "AmiDLL/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/AmiDLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AmiDLL.dll": {}
+        }
       }
     }
   },
@@ -225,10 +234,16 @@
         "system.io.ports.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "AmiDLL/1.0.0": {
+      "type": "project",
+      "path": "../../AmiDLL/AmiDLL/AmiDLL.csproj",
+      "msbuildProject": "../../AmiDLL/AmiDLL/AmiDLL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "AmiDLL >= 1.0.0",
       "System.IO.Ports >= 8.0.0"
     ]
   },
@@ -239,9 +254,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj",
-      "projectName": "DLL_App",
-      "projectPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\DLL_App.csproj",
+      "projectUniqueName": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\EZM DLL GUI.csproj",
+      "projectName": "EZM DLL GUI",
+      "projectPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\EZM DLL GUI.csproj",
       "packagesPath": "C:\\Users\\Joistaus\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\DLL-Interfaz\\DLL_App\\obj\\",
       "projectStyle": "PackageReference",
@@ -264,7 +279,11 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Joistaus\\Documents\\EzmProjects\\AmiDLL\\AmiDLL\\AmiDLL.csproj": {
+              "projectPath": "C:\\Users\\Joistaus\\Documents\\EzmProjects\\AmiDLL\\AmiDLL\\AmiDLL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

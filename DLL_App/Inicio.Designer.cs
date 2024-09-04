@@ -47,11 +47,13 @@
 			panel2 = new Panel();
 			label5 = new Label();
 			panel3 = new Panel();
+			txtBoxStatus = new TextBox();
 			txtboxResp = new TextBox();
 			lblParamValue = new Label();
 			panelParamValue = new Panel();
 			textboxParamValue = new TextBox();
 			lblMessages = new Label();
+			lblAppVersion = new Label();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel3.SuspendLayout();
@@ -65,9 +67,9 @@
 			label1.ForeColor = Color.White;
 			label1.Location = new Point(128, 52);
 			label1.Name = "label1";
-			label1.Size = new Size(189, 37);
+			label1.Size = new Size(168, 37);
 			label1.TabIndex = 0;
-			label1.Text = "EZM AMI TOOL";
+			label1.Text = "EZM DLL GUI";
 			// 
 			// btnSend
 			// 
@@ -296,6 +298,7 @@
 			// panel3
 			// 
 			panel3.BackColor = Color.FromArgb(55, 52, 75);
+			panel3.Controls.Add(txtBoxStatus);
 			panel3.Controls.Add(txtboxResp);
 			panel3.Location = new Point(37, 462);
 			panel3.Margin = new Padding(3, 2, 3, 2);
@@ -303,13 +306,25 @@
 			panel3.Size = new Size(518, 54);
 			panel3.TabIndex = 13;
 			// 
+			// txtBoxStatus
+			// 
+			txtBoxStatus.BackColor = Color.FromArgb(55, 52, 75);
+			txtBoxStatus.BorderStyle = BorderStyle.None;
+			txtBoxStatus.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			txtBoxStatus.ForeColor = Color.MistyRose;
+			txtBoxStatus.Location = new Point(10, 32);
+			txtBoxStatus.Margin = new Padding(3, 2, 3, 2);
+			txtBoxStatus.Name = "txtBoxStatus";
+			txtBoxStatus.Size = new Size(498, 17);
+			txtBoxStatus.TabIndex = 15;
+			// 
 			// txtboxResp
 			// 
 			txtboxResp.BackColor = Color.FromArgb(55, 52, 75);
 			txtboxResp.BorderStyle = BorderStyle.None;
 			txtboxResp.Font = new Font("Franklin Gothic Book", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			txtboxResp.ForeColor = Color.White;
-			txtboxResp.Location = new Point(9, 16);
+			txtboxResp.Location = new Point(9, 7);
 			txtboxResp.Margin = new Padding(3, 2, 3, 2);
 			txtboxResp.Name = "txtboxResp";
 			txtboxResp.Size = new Size(498, 17);
@@ -359,12 +374,24 @@
 			lblMessages.TabIndex = 8;
 			lblMessages.TextAlign = ContentAlignment.MiddleCenter;
 			// 
+			// lblAppVersion
+			// 
+			lblAppVersion.AutoSize = true;
+			lblAppVersion.Font = new Font("Franklin Gothic Medium Cond", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			lblAppVersion.ForeColor = Color.White;
+			lblAppVersion.Location = new Point(521, 521);
+			lblAppVersion.Name = "lblAppVersion";
+			lblAppVersion.Size = new Size(31, 15);
+			lblAppVersion.TabIndex = 16;
+			lblAppVersion.Text = "0.0.0";
+			// 
 			// Interfaz
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(33, 31, 45);
 			ClientSize = new Size(588, 539);
+			Controls.Add(lblAppVersion);
 			Controls.Add(lblMessages);
 			Controls.Add(panelParamValue);
 			Controls.Add(lblParamValue);
@@ -382,7 +409,7 @@
 			MaximizeBox = false;
 			Name = "Interfaz";
 			StartPosition = FormStartPosition.CenterScreen;
-			Text = "DLL App";
+			Text = "EZM DLL GUI";
 			Load += Interfaz_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
@@ -420,5 +447,7 @@
         private Label lblMessages;
         private Button btnHandshake;
 		private Button btnDefaultAddressing;
+		private TextBox txtBoxStatus;
+		private Label lblAppVersion;
 	}
 }
