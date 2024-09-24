@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EZM DLL GUI", "DLL_App\EZM 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmiDLL", "..\AmiDLL\AmiDLL\AmiDLL.csproj", "{9DC0CBCF-A918-4F43-9B40-A90D2BBFC430}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EZM DLL GUI SETUP", "EZM DLL GUI SETUP\EZM DLL GUI SETUP.vdproj", "{FED1457B-FA5C-426F-9685-763A76771D4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{9DC0CBCF-A918-4F43-9B40-A90D2BBFC430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DC0CBCF-A918-4F43-9B40-A90D2BBFC430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DC0CBCF-A918-4F43-9B40-A90D2BBFC430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED1457B-FA5C-426F-9685-763A76771D4D}.Debug|Any CPU.ActiveCfg = Debug
+		{FED1457B-FA5C-426F-9685-763A76771D4D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

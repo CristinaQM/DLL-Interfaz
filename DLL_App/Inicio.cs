@@ -353,7 +353,7 @@ namespace DLL_App
 
 		private void btnDefaultAddressing_Click(object sender, EventArgs e)
 		{
-			if (ezmAmi.SetDefaultAddressing() == AmiDLL.Enums.Status.OK)
+			if (ezmAmi.SetDefaultConfig() == AmiDLL.Enums.Status.OK)
 			{
 				lblMessages.Text = "Test configuration set successfully!";
 			}
